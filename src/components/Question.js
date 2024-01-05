@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Question = ({ item }) => {
+const Question = ({ item, setAnswerPool }) => {
 
     const [countOfAnswer] = useState(
         item.CorrectAnswer.length || 0
@@ -32,6 +32,8 @@ const Question = ({ item }) => {
         }
     })    
 
+
+
     return (
         <div className={`question_${item.Id}`}>
             <p className={`questionText`}>{item.Id}: {question}</p>
@@ -39,9 +41,16 @@ const Question = ({ item }) => {
 
             <div>
                 {[...respondMap].map(([key, value]) => (
-                    <option key={key} value={key}>
+                    <div key={key} value={key}>
+                        <input
+                            type="checkbox"
+                            onChange={() => {
+                                setAnswerPool(item.Id, key);
+                                // checked[user.id] = !checked[user.id];
+                            }}
+                        />
                         {value}
-                    </option>
+                    </div>
                 ))}
             </div>
         </div>

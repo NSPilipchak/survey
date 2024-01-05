@@ -1,8 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Questions from "../components/Questions";
 
 const QuestionsPool = () => {
+  const [answerPool, setAnswerPool] = useState(
+    JSON.parse(localStorage.getItem("answerPool") || "[]")
+  );
+  const [questions] = useState(
+    JSON.parse(localStorage.getItem("questions") || "")
+  );
+  const [rawData, setRawData] = useState([]);
 
   return (
     <section className="main">
@@ -10,7 +17,12 @@ const QuestionsPool = () => {
         <p>
             Questions Pool
         </p>
-        <Questions />
+        <Questions 
+          questions={questions}
+          answerPool={answerPool}
+          setAnswerPool={setAnswerPool}
+          rawData={rawData}
+        />
       </div>
       <div>
         <h3>

@@ -20,6 +20,7 @@ const LoadQuestions = () => {
     const jsonData = XLSX.utils.sheet_to_json(worksheet);
     
     localStorage.setItem("questions", JSON.stringify(jsonData));
+    localStorage.setItem("answerPool", JSON.stringify("[]"));
     localStorage.setItem("NumberOfQuestions", jsonData.length);
     setNumberOfQuestions(jsonData.length);
     localStorage.setItem("fileName", file.name);
