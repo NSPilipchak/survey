@@ -13,14 +13,14 @@ const LoadQuestions = () => {
     const file = e.target.files[0];
     setfileName(file.name);
     const data = await file.arrayBuffer();
-    const workbook = XLSX.read(data);
-    // const workbook = XLSX.readFile(data, {sheetRows: 4});
+    // const workbook = XLSX.read(data);
+    const workbook = XLSX.readFile(data, {sheetRows: 4});
     
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
     const jsonData = XLSX.utils.sheet_to_json(worksheet);
     
     localStorage.setItem("questions", JSON.stringify(jsonData));
-    localStorage.setItem("answerPool", JSON.stringify("[]"));
+    localStorage.setItem("answerPool", JSON.stringify([]));
     localStorage.setItem("NumberOfQuestions", jsonData.length);
     setNumberOfQuestions(jsonData.length);
     localStorage.setItem("fileName", file.name);

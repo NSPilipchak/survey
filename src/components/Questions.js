@@ -1,13 +1,27 @@
-import React, {useState} from "react";
+import React from "react";
 import Question from "../components/Question";
 
-const Questions = ({questions, answerPool, setAnswerPool, rawData}) => {
+const Questions = ({answerPool, setAnswerPool, questions = []}) => {
+  
+  const handleSelectAnswer = (id, key) => {
+    console.log('handleSelectAnswer: Id:'+ id + ' key: ' + key);
 
-  const handleSelectAnswer = (Id, key) => {
-    console.log('handleSelectAnswer: Id:'+ Id + ' key: ' + key);
-    // answerPool.find(item => item.Id === Id)
-    //   ? setAnswerPool(answerPool.filter(item => item.Id !== Id))
-    //   : setAnswerPool([...answerPool, rawData.find(item => item.Id === Id)]);
+    if (answerPool.find(item => item.Id === id)) {
+      setAnswerPool(current =>
+        current.map(obj => {
+          if (obj.Id === id) {
+            return {...obj, choise: key};
+          }
+          return obj;
+        }),
+      );
+    } else {
+      let obj = questions.find(item => {
+        return item.Id === id
+      });
+      obj.choise = key;
+      setAnswerPool(current => [...current, obj]);
+    }
   };
 
   return (
