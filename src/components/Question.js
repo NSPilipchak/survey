@@ -5,6 +5,9 @@ const Question = ({ item, setAnswerPool }) => {
     const [countOfAnswer] = useState(
         item.CorrectAnswer.length || 0
     );
+    const [inputType] = useState(
+        item.CorrectAnswer.length === 1 ? 'radio' : 'checkbox'
+    );
 
     let splitedQuestion = item.Question.split("\r\n");
     let question = '';
@@ -40,18 +43,20 @@ const Question = ({ item, setAnswerPool }) => {
             <p className={`answer`}>({countOfAnswer})-{item.CorrectAnswer}</p>
 
             <div>
-                {[...respondMap].map(([key, value]) => (
-                    <div key={key} value={key}>
-                        <input
-                            type="checkbox"
-                            onChange={() => {
-                                setAnswerPool(item.Id, key);
-                                // checked[user.id] = !checked[user.id];
-                            }}
-                        />
-                        {value}
-                    </div>
-                ))}
+                <form>
+                    {[...respondMap].map(([key, value]) => (
+                        <div key={key} value={key}>
+                            <input
+                                type={inputType}
+                                name={`answer_${item.id}`}
+                                onChange={() => {
+                                    setAnswerPool(item.Id, key);
+                                }}
+                            />
+                            {value}
+                        </div>
+                    ))}
+                </form>
             </div>
         </div>
     );
