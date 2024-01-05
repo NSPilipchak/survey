@@ -14,6 +14,7 @@ const LoadQuestions = () => {
     setfileName(file.name);
     const data = await file.arrayBuffer();
     const workbook = XLSX.read(data);
+    // const workbook = XLSX.readFile(data, {sheetRows: 4});
     
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
     const jsonData = XLSX.utils.sheet_to_json(worksheet);
@@ -63,7 +64,7 @@ const LoadQuestions = () => {
       </div>
       <div>
         <h3>
-          Let's go to <Link to="/">main page</Link>
+          <Link to="/">Main page</Link>
         </h3>
       </div>
     </section>
