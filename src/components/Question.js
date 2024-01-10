@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+import PropTypes from "prop-types";
+import { getAnswerOptions } from "../service/Const"
 
-const Question = ({ item, setAnswerPool }) => {
-
+const Question = ({ item, setAnswerPool, answerPool }) => {
+    const [checkedAnsw] = React.useState([]);
     const [countOfAnswer] = useState(
         item.CorrectAnswer.length || 0
     );
@@ -33,9 +35,17 @@ const Question = ({ item, setAnswerPool }) => {
                 question += "\r\n" + quest;
             }
         }
-    })    
+    })
 
+    const check = () => {
+        answerPool.forEach((answer) => {
+            if (answer.Id === item.Id) {
+                getAnswerOptions().forEach(a => checkedAnsw[a.key] = answer.choise.includes(a.key));
+            }
+        });
+      }
 
+    check();
 
     return (
         <div className={`question_${item.Id}`}>
@@ -50,8 +60,10 @@ const Question = ({ item, setAnswerPool }) => {
                                 type={inputType}
                                 name={`answer_${item.id}`}
                                 onChange={() => {
-                                    setAnswerPool(item.Id, key);
+                                    setAnswerPool(item.Id, key, countOfAnswer);
+                                    checkedAnsw[key] = !checkedAnsw[key];
                                 }}
+                                checked={checkedAnsw[key]}
                             />
                             {value}
                         </div>
@@ -61,5 +73,9 @@ const Question = ({ item, setAnswerPool }) => {
         </div>
     );
 };
+
+Question.propTypes = {
+    setAnswerPool: PropTypes.func
+  };
 
 export default Question;

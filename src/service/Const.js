@@ -100,3 +100,14 @@ export function getMonth() {
         {"id": 50, "firstName": "Gavin", "lastName": "Gonzalez", "dob": "1987-06-18"}
     ];
   }
+
+  export function getAnswerOptions() {
+    return [
+        {key:'A', value:false}, 
+        {key:'B', value:false}, 
+        {key:'C', value:false}, 
+        {key:'D', value:false},
+        {key:'E', value:false},
+        {key:'F', value:false}
+    ];
+  }
