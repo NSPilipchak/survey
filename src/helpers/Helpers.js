@@ -39,3 +39,15 @@ export function stringInfoUser(user) {
     ${months[new Date(user.dob).getMonth()]} 
     ${new Date(user.dob).getFullYear()} year`;
 }
+
+export function setAnswerKey(keyOld, keyNew, countOfAnswer) {
+  if (countOfAnswer > 1) {
+    let arr = keyOld.split("");
+    arr.find(key => key === keyNew)
+      ? arr = arr.filter(key => key !== keyNew)
+      : arr.push(keyNew);
+    return arr.sort().join("");
+  }
+  return keyNew;
+}
+
