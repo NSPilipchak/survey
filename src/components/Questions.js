@@ -1,7 +1,7 @@
 import React from "react";
 import Question from "../components/Question";
 
-const Questions = ({answerPool, setAnswerPool, questions = []}) => {
+const Questions = ({answerPool, setAnswerPool, questions = [], options}) => {
 
   const setKey = (keyOld, keyNew, countOfAnswer) => {
     if (countOfAnswer > 1) {
@@ -43,6 +43,7 @@ const Questions = ({answerPool, setAnswerPool, questions = []}) => {
             item={question}
             answerPool = {answerPool}
             setAnswerPool={handleSelectAnswer}
+            options={options}
           />
         </div>
       ))}

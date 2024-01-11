@@ -5,6 +5,10 @@ import Answers from "../components/Answers";
 
 const QuestionsPool = () => {
 
+  const [options] = useState(
+    JSON.parse(localStorage.getItem("options") || "[]")
+  );
+
   const [questions] = useState(
     JSON.parse(localStorage.getItem("questions") || "")
   );
@@ -22,6 +26,7 @@ const QuestionsPool = () => {
           answerPool={answerPool}
           setAnswerPool={setAnswerPool}
           questions={questions}
+          options={options}
         />
       </div>
       <div>

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { getAnswerOptions } from "../service/Const"
 
-const Question = ({ item, setAnswerPool, answerPool }) => {
+const Question = ({ item, setAnswerPool, answerPool, options }) => {
     const [checkedAnsw] = React.useState([]);
     const [countOfAnswer] = useState(
         item.CorrectAnswer.length || 0
@@ -50,8 +50,9 @@ const Question = ({ item, setAnswerPool, answerPool }) => {
     return (
         <div className={`question_${item.Id}`}>
             <p className={`questionText`}>{item.Id}: {question}</p>
-            <p className={`answer`}>({countOfAnswer})-{item.CorrectAnswer}</p>
-
+            {options.find(opt => opt === 'showAnswers') && 
+                <p className={`answer`}>({countOfAnswer})-{item.CorrectAnswer}</p>
+            }
             <div>
                 <form>
                     {[...respondMap].map(([key, value]) => (
