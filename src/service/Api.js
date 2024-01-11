@@ -8,6 +8,6 @@ export async function getUsers() {
     );
   } catch (e) {
     console.log(e);
-}
+  }
   return res;
 }

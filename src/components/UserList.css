@@ -1,16 +1,16 @@
 input {
-    float: right;
-  }
-  div {
-    padding-left: 5px;
-  }
-  .user-list__list {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr;
-  }
-  .user-list__item {
-    max-width: 170px;
-    font-size: smaller;
-    font-weight: normal;
-  }
+  float: right;
+}
+div {
+  padding-left: 5px;
+}
+.user-list__list {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+}
+.user-list__item {
+  max-width: 170px;
+  font-size: smaller;
+  font-weight: normal;
+}
