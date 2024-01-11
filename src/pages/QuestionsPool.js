@@ -5,7 +5,7 @@ import Questions from "../components/Questions";
 import Answers from "../components/Answers";
 
 const QuestionsPool = () => {
-
+  const [isShownResults, setShownResults] = useState(false);
   const [options] = useState(
     JSON.parse(localStorage.getItem("options") || "[]")
   );
@@ -20,6 +20,11 @@ const QuestionsPool = () => {
   return (
     <section className="main">
       <div>
+        <h3>
+          <Link to="/">Main page</Link>
+        </h3>
+      </div>
+      <div>
         <p>
             Questions Pool
         </p>
@@ -28,15 +33,15 @@ const QuestionsPool = () => {
           setAnswerPool={setAnswerPool}
           questions={questions}
           options={options}
+          isShownResults={isShownResults}
+          setShownResults={setShownResults}
         />
       </div>
       <div>
         <Answers
-          answers={answerPool} 
+          answers={answerPool}
+          isShownResults={isShownResults} 
         />
-        <h3>
-          <Link to="/">Main page</Link>
-        </h3>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Answers = ({ answers = [] }) => {
+const Answers = ({ answers = [], isShownResults }) => {
   localStorage.setItem("answerPool", JSON.stringify(answers));
 
   const getCorrectAnswers = () => {
@@ -16,9 +16,9 @@ const Answers = ({ answers = [] }) => {
   }
 
   return answers.length === 0 ? (
-    <div>No selected answers</div>
+    <div className={isShownResults ? 'user-list-by-month__list vLine' : 'hide'}>No selected answers</div>
   ) : (
-    <div className="user-list-by-month__list vLine">
+    <div className={isShownResults ? 'user-list-by-month__list vLine' : 'hide'}>
       <div>
         goted: {answers.length}<br/>
         correct: {getCorrectAnswers()}<br/>

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Question from "../components/Question";
 import { setAnswerKey } from "../helpers/Helpers";
 
-const Questions = ({answerPool, setAnswerPool, questions = [], options}) => {
+const Questions = ({answerPool, setAnswerPool, questions = [], options, isShownResults, setShownResults}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showQuestions] = useState([questions.length]);
   const show = () => {
@@ -32,7 +32,7 @@ const Questions = ({answerPool, setAnswerPool, questions = [], options}) => {
   };
 
   const getStyle = (index) => {
-    return showQuestions[index] ? '' : 'hideQuestion';
+    return showQuestions[index] ? '' : 'hide';
   }
 
   function pressPrevious() {
@@ -51,6 +51,10 @@ const Questions = ({answerPool, setAnswerPool, questions = [], options}) => {
     }
   }
 
+  function getResults() {
+    setShownResults(!isShownResults);
+  }
+
   return (
     <div className="column_question_list">
       {questions.map((question, index) => (
@@ -62,8 +66,11 @@ const Questions = ({answerPool, setAnswerPool, questions = [], options}) => {
             setAnswerPool={handleSelectAnswer}
             options={options}
           />
-          <button onClick={pressPrevious}>Previous</button>
-          <button onClick={pressNext}>Next</button>
+          <div className="mt_5px">
+            <button onClick={pressPrevious} className="button">Previous</button>
+            <button onClick={pressNext} className="button">Next</button>
+            <button onClick={getResults} className="button">Results</button>
+          </div>
         </div>
       ))}
     </div>

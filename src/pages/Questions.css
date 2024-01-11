@@ -1,7 +1,41 @@
+.main {
+    padding: 32px;
+}
+
+section {
+    display: contents;
+}
+
 input {
     float: left;
 }
 
-.hideQuestion {
+p {
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+div {
+    padding-left: 5px;
+}
+
+.hide {
     display: none;
+}
+
+.mt_5px {
+    margin-top: 5px;
+}
+
+.button {
+    width: 100px;
+    padding: 3px;
+    margin: 5px;
 }
