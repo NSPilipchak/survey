@@ -1,3 +1,4 @@
+import "./Questions.css";
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Questions from "../components/Questions";
