@@ -111,3 +111,9 @@ export function getMonth() {
         {key:'F', value:false}
     ];
   }
+
+  export function getOptions() {
+    return [
+      {label:'Show answers', parameter:'showAnswers', type:'checkbox'}
+    ];
+  }
