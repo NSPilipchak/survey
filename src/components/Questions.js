@@ -1,9 +1,12 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Question from "../components/Question";
 import { setAnswerKey } from "../helpers/Helpers";
 
-const Questions = ({answerPool, setAnswerPool, questions = [], options, isShownResults, setShownResults}) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Questions = ({
+    answerPool, setAnswerPool, questions = [], options, 
+    isShownResults, setShownResults, currentIndex, setCurrentIndex
+  }) => {
+
   const [showQuestions] = useState([questions.length]);
   const show = () => {
     questions.map((q, index) => (

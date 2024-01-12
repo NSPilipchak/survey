@@ -1,6 +1,6 @@
 import React from "react";
 
-const Answers = ({ answers = [], isShownResults }) => {
+const Answers = ({ answers = [], isShownResults, setCurrentIndex }) => {
   localStorage.setItem("answerPool", JSON.stringify(answers));
 
   const getCorrectAnswers = () => {
@@ -15,6 +15,10 @@ const Answers = ({ answers = [], isShownResults }) => {
     return (getCorrectAnswers() / answers.length * 100).toFixed(2);
   }
 
+  function setNewIndex(index) {
+    setCurrentIndex(index);
+  }
+
   return answers.length === 0 ? (
     <div className={isShownResults ? 'user-list-by-month__list vLine' : 'hide'}>No selected answers</div>
   ) : (
@@ -25,9 +29,18 @@ const Answers = ({ answers = [], isShownResults }) => {
         result: {getResults()}%
       </div>
       <ul>
-        {answers.map(item => (
-          <li className={item.choise == item.CorrectAnswer ? "user-list-by-month__item" : "user-list-by-month__item wrongAnswer"} key={item.Id}>
-            {item.Id}:{item.choise}
+        {answers.map((item, index) => (
+          <li 
+            className={
+              item.choise == item.CorrectAnswer 
+                  ? "user-list-by-month__item" 
+                  : "user-list-by-month__item wrongAnswer"
+              } 
+            key={item.Id}
+            onClick={() => {
+              setNewIndex(index);
+            }}>
+              {item.Id}:{item.choise}
           </li>
         ))}
       </ul>

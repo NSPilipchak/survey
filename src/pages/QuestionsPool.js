@@ -1,10 +1,18 @@
 import "./Questions.css";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Questions from "../components/Questions";
 import Answers from "../components/Answers";
 
 const QuestionsPool = () => {
+  const [currentIndex, setCurrentIndex] = useState(
+    JSON.parse(localStorage.getItem('currentIndex') || 0)
+  );
+
+  useEffect(() => {
+    localStorage.setItem('currentIndex', JSON.stringify(currentIndex));
+  }, [currentIndex]);
+
   const [isShownResults, setShownResults] = useState(false);
   const [options] = useState(
     JSON.parse(localStorage.getItem("options") || "[]")
@@ -35,12 +43,15 @@ const QuestionsPool = () => {
           options={options}
           isShownResults={isShownResults}
           setShownResults={setShownResults}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
         />
       </div>
       <div>
         <Answers
           answers={answerPool}
-          isShownResults={isShownResults} 
+          isShownResults={isShownResults}
+          setCurrentIndex={setCurrentIndex}
         />
       </div>
     </section>
