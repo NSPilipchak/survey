@@ -1,6 +1,6 @@
 import React from "react";
 
-const Answers = ({ answers = [], isShownResults, setCurrentIndex }) => {
+const Answers = ({ answers = [], isShownResults, currentIndex, setCurrentIndex }) => {
   localStorage.setItem("answerPool", JSON.stringify(answers));
 
   const getCorrectAnswers = () => {
@@ -32,15 +32,22 @@ const Answers = ({ answers = [], isShownResults, setCurrentIndex }) => {
         {answers.map((item, index) => (
           <li 
             className={
-              item.choise == item.CorrectAnswer 
-                  ? "user-list-by-month__item" 
-                  : "user-list-by-month__item wrongAnswer"
+              currentIndex == index 
+                  ? "selectedQuestion" 
+                  : ""
               } 
             key={item.Id}
             onClick={() => {
               setNewIndex(index);
             }}>
-              {item.Id}:{item.choise}
+              <div
+                className={
+                  item.choise == item.CorrectAnswer 
+                      ? "user-list-by-month__item" 
+                      : "user-list-by-month__item wrongAnswer"
+              }>
+                {item.Id}:{item.choise}
+              </div>
           </li>
         ))}
       </ul>

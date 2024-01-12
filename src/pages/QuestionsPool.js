@@ -51,6 +51,7 @@ const QuestionsPool = () => {
         <Answers
           answers={answerPool}
           isShownResults={isShownResults}
+          currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
         />
       </div>
