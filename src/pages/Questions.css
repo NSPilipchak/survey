@@ -2,6 +2,10 @@
     padding: 32px;
 }
 
+.column_question_list {
+    padding-right: 32px;
+} 
+
 section {
     display: contents;
 }
