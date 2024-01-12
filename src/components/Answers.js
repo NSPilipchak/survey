@@ -26,7 +26,7 @@ const Answers = ({ answers = [], isShownResults }) => {
       </div>
       <ul>
         {answers.map(item => (
-          <li className="user-list-by-month__item" key={item.Id}>
+          <li className={item.choise == item.CorrectAnswer ? "user-list-by-month__item" : "user-list-by-month__item wrongAnswer"} key={item.Id}>
             {item.Id}:{item.choise}
           </li>
         ))}
