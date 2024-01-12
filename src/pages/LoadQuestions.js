@@ -22,6 +22,7 @@ const LoadQuestions = () => {
     localStorage.setItem("questions", JSON.stringify(jsonData));
     localStorage.setItem("answerPool", JSON.stringify([]));
     localStorage.setItem("NumberOfQuestions", jsonData.length);
+    localStorage.setItem("currentIndex", JSON.stringify(0));
     setNumberOfQuestions(jsonData.length);
     localStorage.setItem("fileName", file.name);
     setLoadedFile(file.name);
