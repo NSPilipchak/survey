@@ -28,7 +28,7 @@ const Answers = ({ answers = [], isShownResults, setCurrentIndex }) => {
         correct: {getCorrectAnswers()}<br/>
         result: {getResults()}%
       </div>
-      <ul>
+      <ul className="answersList">
         {answers.map((item, index) => (
           <li 
             className={
