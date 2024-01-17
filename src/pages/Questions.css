@@ -7,7 +7,7 @@
 } 
 
 section {
-    display: contents;
+    display: inline;
 }
 
 input {

@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
 
 const LoadQuestions = () => {
@@ -63,11 +62,6 @@ const LoadQuestions = () => {
           type="file"
           onInput={(e) => handleFile(e)}
         />
-      </div>
-      <div>
-        <h3>
-          <Link to="/">Main page</Link>
-        </h3>
       </div>
     </section>
   );
