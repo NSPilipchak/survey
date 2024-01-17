@@ -56,7 +56,7 @@ const Question = ({ item, setAnswerPool, answerPool, options }) => {
       <div>
         <form>
           {[...respondMap].map(([key, value]) => (
-            <div key={key} value={key}>
+            <div key={key} value={key} className="options">
               <input
                 type={inputType}
                 name={`answer_${item.id}`}
