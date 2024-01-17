@@ -48,6 +48,10 @@ div {
     color: green;
 }
 
+.result {
+    color: black;
+}
+
 .wrongAnswer {
     color: red;
 }
