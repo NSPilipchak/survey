@@ -71,7 +71,7 @@ const Questions = ({
           />
           <div className="mt_5px">
             <button onClick={pressPrevious} disabled={currentIndex === 0} className="button">Previous</button>
-            <button onClick={pressNext} disabled={(questions.length - 1) === currentIndex} className="button">Next</button>
+            <button onClick={pressNext} disabled={(questions.length - 1) === currentIndex} className="button next">Next</button>
             <button onClick={getResults} className="button">Results</button>
           </div>
         </div>
