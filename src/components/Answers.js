@@ -3,6 +3,8 @@ import React from "react";
 const Answers = ({ answers = [], isShownResults, currentIndex, setCurrentIndex }) => {
   localStorage.setItem("answerPool", JSON.stringify(answers));
 
+  let isShowPlusOne = false;
+  
   const getCorrectAnswers = () => {
     let correctAnswers = 0;
     answers.forEach(item => {
@@ -19,26 +21,34 @@ const Answers = ({ answers = [], isShownResults, currentIndex, setCurrentIndex }
     setCurrentIndex(index);
   }
 
+  function showPlusOne() {
+    let ret = ''
+    if (isShowPlusOne) {
+      ret = <span className="plusOne">+1</span>;
+    }
+    return ret;
+  }
+
   return answers.length === 0 ? (
     <div className={isShownResults ? 'user-list-by-month__list vLine' : 'hide'}>No selected answers</div>
   ) : (
     <div className={isShownResults ? 'user-list-by-month__list vLine' : 'hide'}>
       <div>
         goted: {answers.length}<br/>
-        correct: {getCorrectAnswers()}<br/>
+        correct: {getCorrectAnswers()} {showPlusOne()} <br/>
         result: {getResults()}%
       </div>
       <ul className="answersList">
         {answers.map((item, index) => (
           <li 
             className={
-              currentIndex == index 
+              currentIndex == (item.Id - 1) 
                   ? "selectedQuestion" 
                   : ""
               } 
             key={item.Id}
             onClick={() => {
-              setNewIndex(index);
+              setNewIndex(item.Id - 1);
             }}>
               <div
                 className={
