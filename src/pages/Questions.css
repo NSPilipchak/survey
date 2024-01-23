@@ -69,6 +69,27 @@ div {
     grid-template-columns: repeat(auto-fill, minmax(80px, 0.4fr));
     grid-gap: 3vw;
     padding: 0px 32px 0px 32px;
+    overflow: scroll;
+    height: 50vh;
+}
+
+.plusOne {
+    font-weight: 600;
+    color: white;
+    animation-name: plusOneColor;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+
+@keyframes plusOneColor {
+    from {
+        margin-left: 0%;
+        color: green;
+    }
+    to {
+        margin-left: 10%;
+        color: white;
+    }
 }
 
 .selectedQuestion {
