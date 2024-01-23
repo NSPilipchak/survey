@@ -69,7 +69,7 @@ div {
     grid-template-columns: repeat(auto-fill, minmax(80px, 0.4fr));
     grid-gap: 3vw;
     padding: 0px 32px 0px 32px;
-    overflow: scroll;
+    overflow: overlay;
     height: 50vh;
 }
 
