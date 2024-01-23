@@ -2,6 +2,13 @@
     padding: 32px;
 }
 
+.goToInputStyle {
+    padding-left: 15px;
+    margin-left: 15px;
+    width: 70px;
+    float: initial;
+}
+
 .column_question_list {
     padding-right: 32px;
 } 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SetupItem from "../components/SetupItem";
 import {getOptions} from "../service/Const";
 import LoadQuestions from "./LoadQuestions";
+import GoToIndex from "../components/GoToIndex";
 
 const QuestionsSetup = () => {
 
@@ -23,6 +24,9 @@ const QuestionsSetup = () => {
       <p>
         Questions Setup
       </p>
+      <div>
+        <GoToIndex />
+      </div>
       <div>
         {getOptions().map((item, index) => (
           <div key={`option_index${index}`}>
