@@ -27,34 +27,25 @@ const QuestionsPool = () => {
 
   return (
     <section className="main">
-      <div>
-        <h3>
-          <Link to="/">Main page</Link>
-        </h3>
-      </div>
-      <div>
-        <p>
-            Questions Pool
-        </p>
-        <Questions 
-          answerPool={answerPool}
-          setAnswerPool={setAnswerPool}
-          questions={questions}
-          options={options}
-          isShownResults={isShownResults}
-          setShownResults={setShownResults}
-          currentIndex={currentIndex}
-          setCurrentIndex={setCurrentIndex}
-        />
-      </div>
-      <div>
-        <Answers
-          answers={answerPool}
-          isShownResults={isShownResults}
-          currentIndex={currentIndex}
-          setCurrentIndex={setCurrentIndex}
-        />
-      </div>
+      <Questions 
+        answerPool={answerPool}
+        setAnswerPool={setAnswerPool}
+        questions={questions}
+        options={options}
+        isShownResults={isShownResults}
+        setShownResults={setShownResults}
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
+      />
+      <Answers
+        answers={answerPool}
+        isShownResults={isShownResults}
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
+      />
+      <h3>
+        <Link to="/">Main page</Link>
+      </h3>
     </section>
   );
 };
